@@ -1,0 +1,320 @@
+/* ========================================
+   Kenven Service - Dark Mode Overrides
+======================================== */
+
+/* ===== Base Colors ===== */
+[data-theme="dark"] body {
+    background: var(--dark-1);
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom-color: var(--dark-3);
+}
+
+[data-theme="dark"] .nav-menu a {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .nav-menu a:hover {
+    background: var(--dark-2);
+    color: var(--primary-light);
+}
+
+[data-theme="dark"] .icon-btn {
+    background: var(--dark-2);
+    color: var(--text-light);
+}
+
+/* ===== Hero Section ===== */
+[data-theme="dark"] .hero {
+    background: var(--dark-1);
+}
+
+[data-theme="dark"] .hero-badge {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+[data-theme="dark"] .hero-description {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .hero-image-wrapper {
+    border-color: var(--dark-2);
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="dark"] .floating-card {
+    background: var(--dark-2);
+    color: var(--text-light);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .hero-stats {
+    border-top-color: var(--dark-3);
+}
+
+/* ===== Cards ===== */
+[data-theme="dark"] .service-card {
+    background: var(--dark-2);
+    border-color: var(--dark-3);
+}
+
+[data-theme="dark"] .service-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="dark"] .service-category {
+    background: var(--dark-1);
+    color: var(--primary-light);
+}
+
+[data-theme="dark"] .service-content p {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .service-footer {
+    border-top-color: var(--dark-3);
+}
+
+[data-theme="dark"] .card {
+    background: var(--dark-2);
+    border-color: var(--dark-3);
+}
+
+/* ===== Portfolio ===== */
+[data-theme="dark"] .portfolio-section {
+    background: var(--dark-2);
+}
+
+[data-theme="dark"] .portfolio-overlay {
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.3));
+}
+
+/* ===== Testimonials ===== */
+[data-theme="dark"] .testimonial-card {
+    background: var(--dark-2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .testimonial-text {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .testimonial-author span {
+    color: var(--text-muted);
+}
+
+/* ===== Forms ===== */
+[data-theme="dark"] .form-control {
+    background: var(--dark-2);
+    border-color: var(--dark-3);
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+/* ===== Cart ===== */
+[data-theme="dark"] .cart-panel {
+    background: var(--dark-1);
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .cart-header {
+    border-bottom-color: var(--dark-3);
+}
+
+[data-theme="dark"] .cart-item {
+    background: var(--dark-2);
+}
+
+[data-theme="dark"] .cart-footer {
+    border-top-color: var(--dark-3);
+}
+
+[data-theme="dark"] .close-cart {
+    background: var(--dark-2);
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .remove-item:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* ===== Buttons ===== */
+[data-theme="dark"] .btn-outline {
+    color: var(--text-light);
+    border-color: var(--dark-3);
+}
+
+[data-theme="dark"] .btn-outline:hover {
+    background: var(--dark-2);
+    border-color: var(--primary);
+    color: var(--primary-light);
+}
+
+/* ===== Section Tag ===== */
+[data-theme="dark"] .section-tag {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary-light);
+}
+
+/* ===== Footer ===== */
+[data-theme="dark"] .footer {
+    background: #0a0f1c;
+}
+
+[data-theme="dark"] .footer-col ul a:hover {
+    color: var(--primary-light);
+}
+
+/* ===== Scrollbar ===== */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 12px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--dark-1);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--dark-3);
+    border-radius: 6px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* ===== Selection ===== */
+[data-theme="dark"] ::selection {
+    background: var(--primary);
+    color: white;
+}
+
+/* ===== Focus Styles ===== */
+[data-theme="dark"] :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* ===== Shadows ===== */
+[data-theme="dark"] .service-card:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .hover-lift:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Images ===== */
+[data-theme="dark"] img {
+    opacity: 0.95;
+}
+
+[data-theme="dark"] img:hover {
+    opacity: 1;
+}
+
+/* ===== Preloader ===== */
+[data-theme="dark"] #preloader {
+    background: var(--gradient-dark);
+}
+
+/* ===== Alert Colors ===== */
+[data-theme="dark"] .alert-success {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="dark"] .alert-error {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* ===== Badges ===== */
+[data-theme="dark"] .badge-primary {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary-light);
+}
+
+/* ===== Page Header ===== */
+[data-theme="dark"] .page-header {
+    background: linear-gradient(135deg, #0a0f1c 0%, #1e293b 100%);
+}
+
+/* ===== Breadcrumb ===== */
+[data-theme="dark"] .breadcrumb a {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .breadcrumb a:hover {
+    color: var(--primary-light);
+}
+
+/* ===== Empty States ===== */
+[data-theme="dark"] .empty-cart {
+    color: var(--text-muted);
+}
+
+/* ===== Price Colors ===== */
+[data-theme="dark"] .price-value {
+    background: linear-gradient(135deg, #818cf8 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== Modal/Overlay ===== */
+[data-theme="dark"] .cart-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* ===== Gradient Backgrounds ===== */
+[data-theme="dark"] .stats-section {
+    background: linear-gradient(135deg, #0a0f1c 0%, #1e293b 100%);
+}
+
+/* ===== Table Styles ===== */
+[data-theme="dark"] table {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] table th,
+[data-theme="dark"] table td {
+    border-bottom-color: var(--dark-3);
+}
+
+[data-theme="dark"] table tr:hover {
+    background: var(--dark-2);
+}
+
+/* ===== Code Blocks ===== */
+[data-theme="dark"] code {
+    background: var(--dark-2);
+    color: var(--primary-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* ===== Blockquote ===== */
+[data-theme="dark"] blockquote {
+    background: var(--dark-2);
+    border-left-color: var(--primary);
+    color: var(--text-light);
+}
+
+/* ===== HR ===== */
+[data-theme="dark"] hr {
+    border-color: var(--dark-3);
+}

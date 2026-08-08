@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Kenven Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <style>
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: white; border-radius: 16px;
+            margin-bottom: 12px; overflow: hidden;
+            border: 1px solid var(--light-3);
+            transition: var(--transition);
+        }
+        [data-theme="dark"] .faq-item {
+            background: var(--dark-2); border-color: var(--dark-3);
+        }
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .faq-question {
+            padding: 22px 24px; cursor: pointer;
+            display: flex; justify-content: space-between;
+            align-items: center; gap: 16px;
+            font-weight: 600; font-size: 16px;
+            transition: var(--transition);
+        }
+        .faq-question:hover { color: var(--primary); }
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--primary); flex-shrink: 0;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 24px;
+            color: var(--text-muted); line-height: 1.8; font-size: 15px;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 22px;
+        }
+        .faq-search {
+            max-width: 500px; margin: 0 auto 40px; position: relative;
+        }
+        .faq-search input {
+            width: 100%; padding: 16px 24px 16px 50px;
+            border: 2px solid var(--light-3); border-radius: 30px;
+            background: white; font-size: 15px;
+        }
+        [dir="rtl"] .faq-search input { padding: 16px 50px 16px 24px; }
+        [data-theme="dark"] .faq-search input {
+            background: var(--dark-2); border-color: var(--dark-3); color: var(--text-light);
+        }
+        .faq-search i {
+            position: absolute; left: 20px; top: 50%;
+            transform: translateY(-50%); color: var(--text-muted);
+        }
+        [dir="rtl"] .faq-search i { left: auto; right: 20px; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Logo">
+            <span>Kenven Service</span>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+            <li><a href="portfolio.html" data-en="Portfolio" data-ar="أعمالي">Portfolio</a></li>
+            <li><a href="about.html" data-en="About" data-ar="من أنا">About</a></li>
+            <li><a href="testimonials.html" data-en="Reviews" data-ar="الآراء">Reviews</a></li>
+            <li><a href="faq.html" class="active" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="icon-btn lang-btn" id="langBtn"><i class="fa-solid fa-globe"></i><span>AR</span></button>
+            <button class="icon-btn theme-btn" id="themeBtn"><i class="fa-solid fa-moon"></i></button>
+            <a href="cart.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 data-en="Frequently Asked Questions" data-ar="الأسئلة الشائعة">Frequently Asked Questions</h1>
+        <p data-en="Find answers to common questions about our services" data-ar="اعثر على إجابات للأسئلة الشائعة حول خدماتنا">Find answers to common questions about our services</p>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section">
+    <div class="container">
+        <div class="faq-container">
+            <!-- Search -->
+            <div class="faq-search reveal">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="faqSearch" placeholder="Search questions..." data-placeholder-en="Search questions..." data-placeholder-ar="ابحث في الأسئلة...">
+            </div>
+
+            <!-- FAQ Items -->
+            <div id="faqList"></div>
+
+            <!-- Still have questions -->
+            <div style="text-align: center; margin-top: 50px; padding: 40px; background: var(--light-2); border-radius: 20px;">
+                <h3 style="margin-bottom: 12px;" data-en="Still Have Questions?" data-ar="لا يزال لديك أسئلة؟">Still Have Questions?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;" data-en="We're here to help. Contact us anytime!" data-ar="نحن هنا للمساعدة. تواصل معنا في أي وقت!">We're here to help. Contact us anytime!</p>
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span data-en="Contact Support" data-ar="تواصل مع الدعم">Contact Support</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kenven Service.</p>
+        </div>
+    </div>
+</footer>
+
+<button class="scroll-top visible" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="js/translations.js"></script>
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const faqData = [
+        {
+            q: { en: 'How long does a project take?', ar: 'كم يستغرق المشروع؟' },
+            a: { en: 'Project timelines vary based on complexity. Simple designs take 3-7 days, websites 1-2 weeks, and complex applications 2-4 weeks. We always provide a clear timeline before starting.', ar: 'تختلف مدة المشروع حسب التعقيد. التصاميم البسيطة تستغرق 3-7 أيام، المواقع 1-2 أسبوع، والتطبيقات المعقدة 2-4 أسابيع. نقدم دائماً جدولاً زمنياً واضحاً قبل البدء.' }
+        },
+        {
+            q: { en: 'What payment methods do you accept?', ar: 'ما طرق الدفع المقبولة؟' },
+            a: { en: 'We accept bank transfers, PayPal, and major credit cards. For larger projects, we offer installment payments: 50% upfront and 50% upon completion.', ar: 'نقبل التحويلات البنكية، PayPal، وبطاقات الائتمان الرئيسية. للمشاريع الكبيرة، نقدم الدفع بالتقسيط: 50% مقدماً و50% عند التسليم.' }
+        },
+        {
+            q: { en: 'Do you offer revisions?', ar: 'هل تقدمون تعديلات؟' },
+            a: { en: 'Yes! All our services include revision rounds. Design services include unlimited revisions until you\'re satisfied, while development services include 2-3 rounds of revisions.', ar: 'نعم! جميع خدماتنا تشمل جولات تعديل. خدمات التصميم تشمل تعديلات غير محدودة حتى رضاك، بينما خدمات البرمجة تشمل 2-3 جولات تعديل.' }
+        },
+        {
+            q: { en: 'Will I own the final files?', ar: 'هل ستملك الملفات النهائية؟' },
+            a: { en: 'Absolutely! Upon final payment, you receive full ownership of all deliverables including source files (AI, PSD, code repositories, etc.).', ar: 'بالتأكيد! عند الدفع النهائي، تحصل على ملكية كاملة لجميع التسليمات بما في ذلك الملفات المصدرية (AI, PSD, مستودعات الكود، إلخ).' }
+        },
+        {
+            q: { en: 'Do you provide support after delivery?', ar: 'هل تقدمون دعماً بعد التسليم؟' },
+            a: { en: 'Yes! We provide free support for 1-6 months depending on the service. After that, we offer affordable maintenance packages to keep your project running smoothly.', ar: 'نعم! نقدم دعماً مجانياً لمدة 1-6 أشهر حسب الخدمة. بعد ذلك، نقدم باقات صيانة بأسعار معقولة للحفاظ على مشروعك يعمل بسلاسة.' }
+        },
+        {
+            q: { en: 'Can you work with international clients?', ar: 'هل يمكنكم العمل مع عملاء دوليين؟' },
+            a: { en: 'Of course! We work with clients worldwide. All communication is done online via email, WhatsApp, Zoom, or your preferred platform. We adapt to different time zones.', ar: 'بالطبع! نعمل مع عملاء حول العالم. كل التواصل يتم إلكترونياً عبر البريد، واتساب، Zoom، أو منصتك المفضلة. نتكيف مع المناطق الزمنية المختلفة.' }
+        },
+        {
+            q: { en: 'What if I\'m not satisfied with the result?', ar: 'ماذا لو لم أكن راضياً عن النتيجة؟' },
+            a: { en: 'Your satisfaction is our priority. If you\'re not completely satisfied, we\'ll work with you to make it right. In rare cases, we offer partial or full refunds based on the project stage.', ar: 'رضاك أولويتنا. إذا لم تكن راضياً تماماً، سنعمل معك لتصحيح الأمر. في حالات نادرة، نقدم استرداداً جزئياً أو كاملاً حسب مرحلة المشروع.' }
+        },
+        {
+            q: { en: 'How do I get started?', ar: 'كيف أبدأ؟' },
+            a: { en: 'Simply browse our services, add what you need to the cart, and complete checkout. Alternatively, contact us directly via the contact form or WhatsApp to discuss your project.', ar: 'ببساطة تصفح خدماتنا، أضف ما تحتاجه للسلة، وأكمل الطلب. أو تواصل معنا مباشرة عبر نموذج التواصل أو واتساب لمناقشة مشروعك.' }
+        }
+    ];
+
+    function renderFAQ(filter = '') {
+        const lang = document.documentElement.getAttribute('lang') || 'en';
+        const list = document.getElementById('faqList');
+        
+        let items = faqData;
+        if (filter) {
+            items = items.filter(item => 
+                item.q[lang].toLowerCase().includes(filter.toLowerCase()) ||
+                item.a[lang].toLowerCase().includes(filter.toLowerCase())
+            );
+        }
+
+        if (items.length === 0) {
+            list.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 30px;">No results found</p>';
+            return;
+        }
+
+        list.innerHTML = items.map((item, index) => `
+            <div class="faq-item reveal" style="animation: fadeInUp 0.5s ease ${index * 0.05}s both">
+                <div class="faq-question">
+                    <span>${item.q[lang]}</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">${item.a[lang]}</div>
+            </div>
+        `).join('');
+
+        // Toggle
+        list.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                list.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // Search
+    document.getElementById('faqSearch').addEventListener('input', (e) => {
+        renderFAQ(e.target.value);
+    });
+
+    window.addEventListener('languageChanged', () => renderFAQ());
+    renderFAQ();
+
+    // Theme
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('kenven_theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('kenven_theme', newTheme);
+        themeBtn.querySelector('i').className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    });
+});
+</script>
+</body>
+</html>

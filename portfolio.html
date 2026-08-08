@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Kenven Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <style>
+        .portfolio-filters {
+            display: flex; justify-content: center; gap: 10px;
+            flex-wrap: wrap; margin-bottom: 40px;
+        }
+        .portfolio-grid-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        .portfolio-card {
+            position: relative; height: 320px; border-radius: 20px;
+            overflow: hidden; cursor: pointer;
+        }
+        .portfolio-card img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .portfolio-card:hover img { transform: scale(1.1); }
+        .portfolio-card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(15,23,42,0.95) 0%, transparent 60%);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 30px; color: white;
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .portfolio-card:hover .portfolio-card-overlay { opacity: 1; }
+        .portfolio-card-overlay .tag {
+            display: inline-block; padding: 4px 12px;
+            background: var(--primary); border-radius: 20px;
+            font-size: 11px; font-weight: 600; margin-bottom: 10px;
+            width: fit-content;
+        }
+        .portfolio-card-overlay h3 { font-size: 20px; margin-bottom: 6px; }
+        .portfolio-card-overlay p { font-size: 13px; opacity: 0.8; }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.9); z-index: 10000;
+            align-items: center; justify-content: center; padding: 40px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90%; max-height: 80vh; border-radius: 16px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 30px;
+            color: white; font-size: 36px; cursor: pointer;
+            width: 50px; height: 50px; display: flex;
+            align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.1); border-radius: 50%;
+        }
+        .lightbox-info {
+            position: absolute; bottom: 30px; left: 50%;
+            transform: translateX(-50%); color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Logo">
+            <span>Kenven Service</span>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+            <li><a href="portfolio.html" class="active" data-en="Portfolio" data-ar="أعمالي">Portfolio</a></li>
+            <li><a href="about.html" data-en="About" data-ar="من أنا">About</a></li>
+            <li><a href="testimonials.html" data-en="Reviews" data-ar="الآراء">Reviews</a></li>
+            <li><a href="faq.html" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="icon-btn lang-btn" id="langBtn"><i class="fa-solid fa-globe"></i><span>AR</span></button>
+            <button class="icon-btn theme-btn" id="themeBtn"><i class="fa-solid fa-moon"></i></button>
+            <a href="cart.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 data-en="Our Portfolio" data-ar="معرض أعمالنا">Our Portfolio</h1>
+        <p data-en="Explore our recent projects and creative work" data-ar="استكشف مشاريعنا الأخيرة وأعمالنا الإبداعية">Explore our recent projects and creative work</p>
+        <div class="breadcrumb">
+            <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span data-en="Portfolio" data-ar="الأعمال">Portfolio</span>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="section">
+    <div class="container">
+        <!-- Filters -->
+        <div class="portfolio-filters reveal">
+            <button class="filter-btn active" data-filter="all" data-en="All Projects" data-ar="كل المشاريع">All Projects</button>
+            <button class="filter-btn" data-filter="web" data-en="Web Design" data-ar="تصميم ويب">Web Design</button>
+            <button class="filter-btn" data-filter="branding" data-en="Branding" data-ar="هوية بصرية">Branding</button>
+            <button class="filter-btn" data-filter="marketing" data-en="Marketing" data-ar="تسويق">Marketing</button>
+            <button class="filter-btn" data-filter="video" data-en="Video" data-ar="فيديو">Video</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid-full" id="portfolioGrid"></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 data-en="Like What You See?" data-ar="أعجبك ما رأيت؟">Like What You See?</h2>
+            <p data-en="Let's create something amazing for your business" data-ar="دعنا نصنع شيئاً مذهلاً لعملك">Let's create something amazing for your business</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-light btn-lg">
+                    <span data-en="Start Your Project" data-ar="ابدأ مشروعك">Start Your Project</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-close" id="lightboxClose">&times;</div>
+    <img src="" alt="Project" id="lightboxImage">
+    <div class="lightbox-info">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxCategory"></p>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kenven Service.</p>
+        </div>
+    </div>
+</footer>
+
+<button class="scroll-top visible" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="js/translations.js"></script>
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const portfolioData = [
+        { id: 1, title: { en: 'E-commerce Platform', ar: 'منصة تجارة إلكترونية' }, category: 'web', categoryName: { en: 'Web Design', ar: 'تصميم ويب' }, image: 'https://picsum.photos/700/500?random=41', desc: { en: 'Modern online store with custom checkout', ar: 'متجر إلكتروني حديث مع نظام دفع مخصص' } },
+        { id: 2, title: { en: 'Luxury Brand Identity', ar: 'هوية علامة فاخرة' }, category: 'branding', categoryName: { en: 'Branding', ar: 'هوية بصرية' }, image: 'https://picsum.photos/700/500?random=42', desc: { en: 'Complete brand package for luxury brand', ar: 'باقة هوية كاملة لعلامة فاخرة' } },
+        { id: 3, title: { en: 'Social Media Campaign', ar: 'حملة سوشيال ميديا' }, category: 'marketing', categoryName: { en: 'Marketing', ar: 'تسويق' }, image: 'https://picsum.photos/700/500?random=43', desc: { en: 'Viral campaign reaching 1M+ users', ar: 'حملة فيروسية وصلت لأكثر من مليون مستخدم' } },
+        { id: 4, title: { en: 'Corporate Website', ar: 'موقع شركة' }, category: 'web', categoryName: { en: 'Web Design', ar: 'تصميم ويب' }, image: 'https://picsum.photos/700/500?random=44', desc: { en: 'Professional corporate web presence', ar: 'حضور ويب احترافي للشركات' } },
+        { id: 5, title: { en: 'Product Launch Video', ar: 'فيديو إطلاق منتج' }, category: 'video', categoryName: { en: 'Video', ar: 'فيديو' }, image: 'https://picsum.photos/700/500?random=45', desc: { en: 'Cinematic product reveal video', ar: 'فيديو سينمائي للكشف عن المنتج' } },
+        { id: 6, title: { en: 'Restaurant Branding', ar: 'هوية مطعم' }, category: 'branding', categoryName: { en: 'Branding', ar: 'هوية بصرية' }, image: 'https://picsum.photos/700/500?random=46', desc: { en: 'Full identity for restaurant chain', ar: 'هوية كاملة لسلسلة مطاعم' } },
+        { id: 7, title: { en: 'SaaS Dashboard', ar: 'لوحة تحكم SaaS' }, category: 'web', categoryName: { en: 'Web Design', ar: 'تصميم ويب' }, image: 'https://picsum.photos/700/500?random=47', desc: { en: 'Analytics dashboard for SaaS product', ar: 'لوحة تحليلات لمنتج SaaS' } },
+        { id: 8, title: { en: 'Fitness App Promo', ar: 'ترويج تطبيق لياقة' }, category: 'marketing', categoryName: { en: 'Marketing', ar: 'تسويق' }, image: 'https://picsum.photos/700/500?random=48', desc: { en: 'Multi-channel marketing campaign', ar: 'حملة تسويقية متعددة القنوات' } },
+        { id: 9, title: { en: 'Wedding Film', ar: 'فيلم زفاف' }, category: 'video', categoryName: { en: 'Video', ar: 'فيديو' }, image: 'https://picsum.photos/700/500?random=49', desc: { en: 'Cinematic wedding highlight reel', ar: 'فيلم زفاف سينمائي' } },
+    ];
+
+    let currentFilter = 'all';
+    const grid = document.getElementById('portfolioGrid');
+
+    function renderPortfolio() {
+        const lang = document.documentElement.getAttribute('lang') || 'en';
+        let items = portfolioData;
+        
+        if (currentFilter !== 'all') {
+            items = items.filter(item => item.category === currentFilter);
+        }
+
+        grid.innerHTML = items.map((item, index) => `
+            <div class="portfolio-card" style="animation: fadeInUp 0.6s ease ${index * 0.1}s both" data-id="${item.id}">
+                <img src="${item.image}" alt="${item.title[lang]}">
+                <div class="portfolio-card-overlay">
+                    <span class="tag">${item.categoryName[lang]}</span>
+                    <h3>${item.title[lang]}</h3>
+                    <p>${item.desc[lang]}</p>
+                </div>
+            </div>
+        `).join('');
+
+        // Click to open lightbox
+        grid.querySelectorAll('.portfolio-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const item = portfolioData.find(p => p.id === parseInt(card.dataset.id));
+                if (!item) return;
+                const lang = document.documentElement.getAttribute('lang') || 'en';
+                document.getElementById('lightboxImage').src = item.image;
+                document.getElementById('lightboxTitle').textContent = item.title[lang];
+                document.getElementById('lightboxCategory').textContent = item.categoryName[lang];
+                document.getElementById('lightbox').classList.add('active');
+            });
+        });
+    }
+
+    // Filters
+    document.querySelectorAll('.portfolio-filters .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.portfolio-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.filter;
+            renderPortfolio();
+        });
+    });
+
+    // Lightbox close
+    document.getElementById('lightboxClose').addEventListener('click', () => {
+        document.getElementById('lightbox').classList.remove('active');
+    });
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('lightbox')) {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    });
+
+    window.addEventListener('languageChanged', renderPortfolio);
+    renderPortfolio();
+
+    // Theme
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('kenven_theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('kenven_theme', newTheme);
+        themeBtn.querySelector('i').className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    });
+});
+</script>
+</body>
+</html>

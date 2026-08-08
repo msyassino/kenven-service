@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Kenven Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <style>
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        .testimonial-full-card {
+            background: white; border-radius: 20px; padding: 32px;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--light-3);
+            transition: var(--transition); position: relative;
+        }
+        [data-theme="dark"] .testimonial-full-card {
+            background: var(--dark-2); border-color: var(--dark-3);
+        }
+        .testimonial-full-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        .testimonial-full-card .quote {
+            position: absolute; top: 20px; right: 24px;
+            font-size: 40px; color: var(--primary); opacity: 0.15;
+        }
+        [dir="rtl"] .testimonial-full-card .quote { right: auto; left: 24px; }
+        .testimonial-header {
+            display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+        }
+        .testimonial-header img {
+            width: 60px; height: 60px; border-radius: 50%;
+            object-fit: cover; border: 3px solid var(--primary);
+        }
+        .testimonial-header h4 { font-size: 16px; margin-bottom: 2px; }
+        .testimonial-header span { font-size: 13px; color: var(--text-muted); }
+        .testimonial-stars {
+            color: var(--accent); margin-bottom: 12px; font-size: 14px;
+        }
+        .testimonial-text-full {
+            color: var(--text-muted); line-height: 1.8; font-size: 14px;
+        }
+        .rating-summary {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px; margin-bottom: 50px;
+        }
+        .rating-card {
+            background: white; padding: 24px; border-radius: 16px;
+            text-align: center; box-shadow: var(--shadow-sm);
+        }
+        [data-theme="dark"] .rating-card { background: var(--dark-2); }
+        .rating-card .number {
+            font-size: 40px; font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .rating-card .label { font-size: 13px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Logo">
+            <span>Kenven Service</span>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+            <li><a href="portfolio.html" data-en="Portfolio" data-ar="أعمالي">Portfolio</a></li>
+            <li><a href="about.html" data-en="About" data-ar="من أنا">About</a></li>
+            <li><a href="testimonials.html" class="active" data-en="Reviews" data-ar="الآراء">Reviews</a></li>
+            <li><a href="faq.html" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="icon-btn lang-btn" id="langBtn"><i class="fa-solid fa-globe"></i><span>AR</span></button>
+            <button class="icon-btn theme-btn" id="themeBtn"><i class="fa-solid fa-moon"></i></button>
+            <a href="cart.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 data-en="Client Testimonials" data-ar="آراء العملاء">Client Testimonials</h1>
+        <p data-en="What our amazing clients say about us" data-ar="ماذا يقول عملاؤنا المميزون عنا">What our amazing clients say about us</p>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section">
+    <div class="container">
+        <!-- Rating Summary -->
+        <div class="rating-summary reveal">
+            <div class="rating-card">
+                <div class="number">4.9</div>
+                <div class="label" data-en="Average Rating" data-ar="متوسط التقييم">Average Rating</div>
+                <div style="color: var(--accent); margin-top: 8px;">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+            <div class="rating-card">
+                <div class="number">120+</div>
+                <div class="label" data-en="Happy Clients" data-ar="عميل سعيد">Happy Clients</div>
+            </div>
+            <div class="rating-card">
+                <div class="number">98%</div>
+                <div class="label" data-en="Satisfaction Rate" data-ar="نسبة الرضا">Satisfaction Rate</div>
+            </div>
+            <div class="rating-card">
+                <div class="number">85%</div>
+                <div class="label" data-en="Repeat Clients" data-ar="عملاء متكررون">Repeat Clients</div>
+            </div>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="testimonials-grid" id="testimonialsGrid"></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 data-en="Want to Be Our Next Success Story?" data-ar="هل تريد أن تكون قصة نجاحنا التالية؟">Want to Be Our Next Success Story?</h2>
+            <p data-en="Join our happy clients and start your project today" data-ar="انضم إلى عملائنا السعداء وابدأ مشروعك اليوم">Join our happy clients and start your project today</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-light btn-lg">
+                    <span data-en="Get Started" data-ar="ابدأ الآن">Get Started</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kenven Service.</p>
+        </div>
+    </div>
+</footer>
+
+<button class="scroll-top visible" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="js/translations.js"></script>
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const extraTestimonials = [
+        ...window.TESTIMONIALS_DATA,
+        {
+            name: { en: 'David Miller', ar: 'ديفيد ميلر' },
+            role: { en: 'E-commerce Owner', ar: 'صاحب متجر إلكتروني' },
+            text: {
+                en: 'Our online sales increased by 250% after the website redesign. The team understood exactly what we needed and delivered a beautiful, fast, and conversion-optimized store.',
+                ar: 'زادت مبيعاتنا الإلكترونية بنسبة 250% بعد إعادة تصميم الموقع. فهم الفريق تماماً ما نحتاجه وقدموا متجراً جميلاً وسريعاً ومحسّناً للتحويل.'
+            },
+            image: 'https://i.pravatar.cc/100?img=33',
+            rating: 5
+        },
+        {
+            name: { en: 'Lisa Anderson', ar: 'ليزا أندرسون' },
+            role: { en: 'Startup Founder', ar: 'مؤسسة شركة ناشئة' },
+            text: {
+                en: 'From concept to launch, the team was professional and responsive. They built our MVP in record time and it has been running flawlessly since day one.',
+                ar: 'من الفكرة إلى الإطلاق، كان الفريق محترفاً وسريع الاستجابة. بنوا نموذجنا الأولي في وقت قياسي ويعمل بشكل مثالي منذ اليوم الأول.'
+            },
+            image: 'https://i.pravatar.cc/100?img=44',
+            rating: 5
+        },
+        {
+            name: { en: 'Omar Khalid', ar: 'عمر خالد' },
+            role: { en: 'Restaurant Owner', ar: 'صاحب مطعم' },
+            text: {
+                en: 'The brand identity they created for my restaurant is stunning. Customers constantly compliment the design, and it has truly set us apart from competitors.',
+                ar: 'الهوية البصرية التي صمموها لمطعمي مذهلة. العملاء يمتدحون التصميم باستمرار، وقد ميزتنا فعلاً عن المنافسين.'
+            },
+            image: 'https://i.pravatar.cc/100?img=52',
+            rating: 5
+        }
+    ];
+
+    function renderTestimonials() {
+        const lang = document.documentElement.getAttribute('lang') || 'en';
+        const grid = document.getElementById('testimonialsGrid');
+
+        grid.innerHTML = extraTestimonials.map((t, index) => `
+            <div class="testimonial-full-card" style="animation: fadeInUp 0.6s ease ${index * 0.1}s both">
+                <i class="fa-solid fa-quote-right quote"></i>
+                <div class="testimonial-header">
+                    <img src="${t.image}" alt="${t.name[lang]}">
+                    <div>
+                        <h4>${t.name[lang]}</h4>
+                        <span>${t.role[lang]}</span>
+                    </div>
+                </div>
+                <div class="testimonial-stars">
+                    ${'<i class="fa-solid fa-star"></i> '.repeat(t.rating)}
+                </div>
+                <p class="testimonial-text-full">${t.text[lang]}</p>
+            </div>
+        `).join('');
+    }
+
+    window.addEventListener('languageChanged', renderTestimonials);
+    renderTestimonials();
+
+    // Theme
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('kenven_theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('kenven_theme', newTheme);
+        themeBtn.querySelector('i').className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    });
+});
+</script>
+</body>
+</html>

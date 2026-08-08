@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Kenven Service</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Kenven Logo">
+            <span>Kenven Service</span>
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="services.html" class="active" data-en="Services" data-ar="الخدمات">Services</a></li>
+            <li><a href="portfolio.html" data-en="Portfolio" data-ar="أعمالي">Portfolio</a></li>
+            <li><a href="about.html" data-en="About" data-ar="من أنا">About</a></li>
+            <li><a href="testimonials.html" data-en="Reviews" data-ar="الآراء">Reviews</a></li>
+            <li><a href="faq.html" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="icon-btn lang-btn" id="langBtn" title="Change Language">
+                <i class="fa-solid fa-globe"></i>
+                <span>AR</span>
+            </button>
+            <button class="icon-btn theme-btn" id="themeBtn" title="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <a href="cart.html" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 data-en="Our Services" data-ar="خدماتنا">Our Services</h1>
+        <p data-en="Discover premium services tailored to your needs" data-ar="اكتشف خدمات متميزة مصممة لاحتياجاتك">Discover premium services tailored to your needs</p>
+        <div class="breadcrumb">
+            <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span data-en="Services" data-ar="الخدمات">Services</span>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section">
+    <div class="container">
+
+        <!-- Search Bar -->
+        <div class="search-bar reveal">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search services..." data-placeholder-en="Search services..." data-placeholder-ar="ابحث عن خدمة...">
+        </div>
+
+        <!-- Filters -->
+        <div class="services-filter reveal">
+            <button class="filter-btn active" data-category="all" data-en="All" data-ar="الكل">All</button>
+            <button class="filter-btn" data-category="Web Design" data-en="Web Design" data-ar="تصميم ويب">Web Design</button>
+            <button class="filter-btn" data-category="Branding" data-en="Branding" data-ar="هوية بصرية">Branding</button>
+            <button class="filter-btn" data-category="Development" data-en="Development" data-ar="برمجة">Development</button>
+            <button class="filter-btn" data-category="Marketing" data-en="Marketing" data-ar="تسويق">Marketing</button>
+            <button class="filter-btn" data-category="Video" data-en="Video" data-ar="فيديو">Video</button>
+            <button class="filter-btn" data-category="SEO" data-en="SEO" data-ar="تحسين SEO">SEO</button>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="services-page-grid" id="allServicesGrid">
+            <!-- Rendered by JS -->
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 data-en="Need Custom Service?" data-ar="تحتاج خدمة مخصصة؟">Need Custom Service?</h2>
+            <p data-en="Contact us to discuss your specific requirements" data-ar="تواصل معنا لمناقشة متطلباتك الخاصة">Contact us to discuss your specific requirements</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-light btn-lg">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span data-en="Contact Us" data-ar="تواصل معنا">Contact Us</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kenven Service. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+        </div>
+    </div>
+</footer>
+
+<button class="scroll-top visible" id="scrollTop">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-panel">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> <span data-en="Your Cart" data-ar="سلتك">Your Cart</span></h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span data-en="Total:" data-ar="الإجمالي:">Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <a href="checkout.html" class="btn btn-primary btn-block" data-en="Checkout" data-ar="إتمام الطلب">Checkout</a>
+        </div>
+    </div>
+</div>
+
+<script src="js/translations.js"></script>
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+// Services Page Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('allServicesGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('searchInput');
+
+    let currentFilter = 'all';
+    let searchTerm = '';
+
+    function renderServices() {
+        const lang = document.documentElement.getAttribute('lang') || 'en';
+        let services = window.SERVICES_DATA || [];
+
+        // Filter
+        if (currentFilter !== 'all') {
+            services = services.filter(s => s.category.en === currentFilter);
+        }
+
+        // Search
+        if (searchTerm) {
+            services = services.filter(s =>
+                s.title.en.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                s.title.ar.includes(searchTerm) ||
+                s.shortDesc.en.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        }
+
+        if (services.length === 0) {
+            grid.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color: var(--text-muted); padding: 40px;">${lang === 'ar' ? 'لا توجد نتائج' : 'No services found'}</p>`;
+            return;
+        }
+
+        grid.innerHTML = services.map((service, index) => {
+            const title = service.title[lang];
+            const category = service.category[lang];
+            const shortDesc = service.shortDesc[lang];
+            const features = service.features[lang].slice(0, 3);
+
+            return `
+                <div class="service-card" style="animation: fadeInUp 0.6s ease ${index * 0.1}s both">
+                    <div class="service-image" style="background-image: url('${service.image}')">
+                        ${service.popular ? `<span class="service-category" style="background: var(--accent); color: white;">Popular</span>` : `<span class="service-category">${category}</span>`}
+                    </div>
+                    <div class="service-content">
+                        <h3>${title}</h3>
+                        <p>${shortDesc}</p>
+                        <ul class="service-features">
+                            ${features.map(f => `<li><i class="fa-solid fa-check"></i> ${f}</li>`).join('')}
+                        </ul>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span class="price-label">${lang === 'ar' ? 'يبدأ من' : 'Starting at'}</span>
+                                <span class="price-value">$${service.price}</span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="service-detail.html?id=${service.id}" class="btn btn-outline icon-action">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                                <button class="btn btn-primary add-to-cart" data-service-id="${service.id}">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Attach cart listeners
+        grid.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                window.cart.addItem(parseInt(btn.dataset.serviceId));
+            });
+        });
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.category;
+            renderServices();
+        });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+        searchTerm = e.target.value;
+        renderServices();
+    });
+
+    window.addEventListener('languageChanged', () => {
+        // Update filter buttons text
+        filterBtns.forEach(btn => {
+            const text = btn.getAttribute(`data-${document.documentElement.getAttribute('lang')}`);
+            if (text) btn.textContent = text;
+        });
+        searchInput.setAttribute('placeholder', searchInput.getAttribute(`data-placeholder-${document.documentElement.getAttribute('lang')}`));
+        renderServices();
+    });
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('kenven_theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('kenven_theme', newTheme);
+        themeBtn.querySelector('i').className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    });
+
+    renderServices();
+});
+</script>
+</body>
+</html>

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenven Service - Professional Services</title>
-    <meta name="description" content="Professional digital services including design, development, and marketing">
+    <title>Kenven Service - Premium Digital Solutions</title>
+    <meta name="description" content="Professional digital services: Web Design, Development, Branding & Marketing">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- CSS Files -->
@@ -20,146 +20,215 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/cart.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
 </head>
 <body>
 
-<!-- ============ PRELOADER ============ -->
+<!-- ===== PRELOADER ===== -->
 <div id="preloader">
-    <div class="loader">
-        <div class="logo-anim">K</div>
-        <div class="loading-bar"></div>
+    <div class="preloader-content">
+        <div class="preloader-logo">
+            <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Kenven">
+        </div>
+        <div class="preloader-bar">
+            <div class="preloader-progress"></div>
+        </div>
+        <p class="preloader-text">Kenven Service</p>
     </div>
 </div>
 
-<!-- ============ NAVIGATION ============ -->
-<nav class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="index.html" class="logo">
-            <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Kenven Logo">
-            <span>Kenven Service</span>
-        </a>
-
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html" class="active" data-en="Home" data-ar="الرئيسية">Home</a></li>
-            <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
-            <li><a href="portfolio.html" data-en="Portfolio" data-ar="أعمالي">Portfolio</a></li>
-            <li><a href="about.html" data-en="About" data-ar="من أنا">About</a></li>
-            <li><a href="testimonials.html" data-en="Reviews" data-ar="الآراء">Reviews</a></li>
-            <li><a href="faq.html" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
-            <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
-        </ul>
-
-        <div class="nav-actions">
-            <button class="icon-btn lang-btn" id="langBtn" title="Change Language">
-                <i class="fa-solid fa-globe"></i>
-                <span>AR</span>
-            </button>
-            <button class="icon-btn theme-btn" id="themeBtn" title="Toggle Theme">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-            <a href="cart.html" class="cart-btn">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="cart-count" id="cartCount">0</span>
+<!-- ===== NAVIGATION ===== -->
+<header class="header" id="header">
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Kenven Logo" class="logo-img">
+                <span class="logo-text">Kenven<span class="logo-accent">Service</span></span>
             </a>
-            <button class="menu-toggle" id="menuToggle">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </div>
-</nav>
 
-<!-- ============ HERO SECTION ============ -->
-<section class="hero">
-    <div class="hero-bg-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="services.html" class="nav-link" data-en="Services" data-ar="الخدمات">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link" data-en="Portfolio" data-ar="أعمالي">Portfolio</a></li>
+                <li><a href="about.html" class="nav-link" data-en="About" data-ar="من أنا">About</a></li>
+                <li><a href="testimonials.html" class="nav-link" data-en="Reviews" data-ar="الآراء">Reviews</a></li>
+                <li><a href="faq.html" class="nav-link" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
+                <li><a href="contact.html" class="nav-link" data-en="Contact" data-ar="تواصل">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-btn lang-toggle" id="langBtn" aria-label="Change Language">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="lang-text">AR</span>
+                </button>
+                
+                <button class="nav-btn theme-toggle" id="themeBtn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                
+                <a href="cart.html" class="nav-btn cart-toggle" aria-label="Shopping Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="hero">
+    <div class="hero-bg">
+        <div class="hero-gradient"></div>
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-grid-pattern"></div>
     </div>
 
     <div class="container hero-container">
         <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fa-solid fa-sparkles"></i>
-                <span data-en="Premium Digital Services" data-ar="خدمات رقمية متميزة">Premium Digital Services</span>
+            <div class="hero-badge reveal-up">
+                <i class="fa-solid fa-award"></i>
+                <span data-en="Premium Digital Agency" data-ar="وكالة رقمية متميزة">Premium Digital Agency</span>
             </div>
 
-            <h1 class="hero-title">
-                <span data-en="Transform Your Ideas Into" data-ar="حوّل أفكارك إلى">Transform Your Ideas Into</span>
-                <span class="gradient-text" data-en="Digital Reality" data-ar="واقع رقمي">Digital Reality</span>
+            <h1 class="hero-title reveal-up" style="animation-delay: 0.1s">
+                <span data-en="We Build" data-ar="نبني">We Build</span>
+                <span class="gradient-text" data-en="Digital Experiences" data-ar="تجارب رقمية">Digital Experiences</span>
+                <span data-en="That Matter" data-ar="تحدث الفرق">That Matter</span>
             </h1>
 
-            <p class="hero-description" data-en="We craft exceptional digital experiences that drive results. From stunning designs to powerful websites, Kenven Service brings your vision to life with precision and creativity." data-ar="نصنع تجارب رقمية استثنائية تحقق النتائج. من التصاميم المذهلة إلى المواقع القوية، Kenven Service يحوّل رؤيتك إلى واقع بدقة وإبداع.">
-                We craft exceptional digital experiences that drive results. From stunning designs to powerful websites, Kenven Service brings your vision to life with precision and creativity.
+            <p class="hero-description reveal-up" style="animation-delay: 0.2s" data-en="From stunning websites to powerful brands, we craft digital solutions that drive real results for businesses worldwide." data-ar="من المواقع المذهلة إلى العلامات التجارية القوية، نصنع حلولاً رقمية تحقق نتائج حقيقية للأعمال حول العالم.">
+                From stunning websites to powerful brands, we craft digital solutions that drive real results for businesses worldwide.
             </p>
 
-            <div class="hero-buttons">
-                <a href="services.html" class="btn btn-primary btn-lg">
+            <div class="hero-buttons reveal-up" style="animation-delay: 0.3s">
+                <a href="services.html" class="btn btn-primary btn-xl">
                     <span data-en="Explore Services" data-ar="استكشف الخدمات">Explore Services</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
-                <a href="portfolio.html" class="btn btn-outline btn-lg">
-                    <i class="fa-solid fa-play"></i>
-                    <span data-en="View Portfolio" data-ar="شاهد الأعمال">View Portfolio</span>
+                <a href="portfolio.html" class="btn btn-glass btn-xl">
+                    <i class="fa-solid fa-play-circle"></i>
+                    <span data-en="View Our Work" data-ar="شاهد أعمالنا">View Our Work</span>
                 </a>
             </div>
 
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="stat-number" data-count="150">0</div>
-                    <div class="stat-label" data-en="Projects Done" data-ar="مشروع منجز">Projects Done</div>
+            <div class="hero-stats reveal-up" style="animation-delay: 0.4s">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="150">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label" data-en="Projects" data-ar="مشروع">Projects</span>
                 </div>
-                <div class="hero-stat">
-                    <div class="stat-number" data-count="120">0</div>
-                    <div class="stat-label" data-en="Happy Clients" data-ar="عميل سعيد">Happy Clients</div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="120">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label" data-en="Clients" data-ar="عميل">Clients</span>
                 </div>
-                <div class="hero-stat">
-                    <div class="stat-number" data-count="99">0</div>
-                    <div class="stat-label" data-en="Success Rate %" data-ar="نسبة النجاح %">Success Rate %</div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="99">0</span>
+                    <span class="stat-plus">%</span>
+                    <span class="stat-label" data-en="Satisfaction" data-ar="رضا">Satisfaction</span>
                 </div>
             </div>
         </div>
 
-        <div class="hero-visual">
-            <div class="floating-card card-1">
-                <i class="fa-solid fa-palette"></i>
-                <span data-en="Design" data-ar="تصميم">Design</span>
-            </div>
-            <div class="floating-card card-2">
-                <i class="fa-solid fa-code"></i>
-                <span data-en="Develop" data-ar="برمجة">Develop</span>
-            </div>
-            <div class="floating-card card-3">
-                <i class="fa-solid fa-rocket"></i>
-                <span data-en="Launch" data-ar="إطلاق">Launch</span>
-            </div>
-            <div class="hero-image-wrapper">
-                <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Hero Visual" class="hero-logo">
+        <div class="hero-visual reveal-right" style="animation-delay: 0.3s">
+            <div class="hero-card-stack">
+                <div class="floating-card fc-1">
+                    <div class="fc-icon"><i class="fa-solid fa-palette"></i></div>
+                    <div class="fc-text">
+                        <span data-en="UI/UX Design" data-ar="تصميم واجهات">UI/UX Design</span>
+                        <small data-en="Creative & Modern" data-ar="إبداعي وعصري">Creative & Modern</small>
+                    </div>
+                </div>
+                
+                <div class="floating-card fc-2">
+                    <div class="fc-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="fc-text">
+                        <span data-en="Development" data-ar="تطوير">Development</span>
+                        <small data-en="Clean & Fast" data-ar="نظيف وسريع">Clean & Fast</small>
+                    </div>
+                </div>
+                
+                <div class="floating-card fc-3">
+                    <div class="fc-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="fc-text">
+                        <span data-en="Marketing" data-ar="تسويق">Marketing</span>
+                        <small data-en="Growth Focused" data-ar="مركز على النمو">Growth Focused</small>
+                    </div>
+                </div>
+
+                <div class="hero-main-card">
+                    <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Kenven Service" class="hero-main-img">
+                    <div class="hero-card-overlay">
+                        <div class="hero-card-content">
+                            <h3 data-en="Kenven Service" data-ar="Kenven Service">Kenven Service</h3>
+                            <p data-en="Your Digital Success Partner" data-ar="شريكك في النجاح الرقمي">Your Digital Success Partner</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="hero-scroll">
-        <a href="#services">
-            <i class="fa-solid fa-chevron-down"></i>
-        </a>
+    <a href="#services" class="hero-scroll">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span data-en="Scroll Down" data-ar="مرر للأسفل">Scroll Down</span>
+    </a>
+</section>
+
+<!-- ===== TRUSTED BY ===== -->
+<section class="trusted-section">
+    <div class="container">
+        <p class="trusted-label" data-en="Trusted by 120+ businesses worldwide" data-ar="موثوق من أكثر من 120 شركة حول العالم">Trusted by 120+ businesses worldwide</p>
+        <div class="trusted-logos">
+            <div class="trusted-logo">TechCorp</div>
+            <div class="trusted-logo">StartupXYZ</div>
+            <div class="trusted-logo">DigitalPro</div>
+            <div class="trusted-logo">InnovateLab</div>
+            <div class="trusted-logo">GrowthCo</div>
+        </div>
     </div>
 </section>
 
-<!-- ============ SERVICES SECTION ============ -->
+<!-- ===== SERVICES SECTION ===== -->
 <section class="section services-section" id="services">
     <div class="container">
-        <div class="section-header">
-            <span class="section-tag" data-en="Our Services" data-ar="خدماتنا">Our Services</span>
-            <h2 class="section-title" data-en="What We Offer" data-ar="ماذا نقدم لك">What We Offer</h2>
-            <p class="section-description" data-en="Premium services tailored to your business needs" data-ar="خدمات متميزة مصممة خصيصاً لاحتياجات عملك">Premium services tailored to your business needs</p>
+        <div class="section-header reveal-up">
+            <span class="section-badge" data-en="What We Do" data-ar="ماذا نفعل">What We Do</span>
+            <h2 class="section-title" data-en="Services That Drive Results" data-ar="خدمات تحقق النتائج">Services That Drive Results</h2>
+            <p class="section-desc" data-en="Premium digital solutions tailored to your business needs" data-ar="حلول رقمية متميزة مصممة لاحتياجات عملك">Premium digital solutions tailored to your business needs</p>
         </div>
 
         <div class="services-grid" id="servicesGrid">
-            <!-- Services will be loaded from JS -->
+            <!-- Rendered by JavaScript -->
         </div>
 
-        <div class="section-cta">
-            <a href="services.html" class="btn btn-primary">
+        <div class="section-footer reveal-up">
+            <a href="services.html" class="btn btn-primary btn-lg">
                 <span data-en="View All Services" data-ar="شاهد جميع الخدمات">View All Services</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
@@ -167,130 +236,144 @@
     </div>
 </section>
 
-<!-- ============ PORTFOLIO SECTION ============ -->
+<!-- ===== PORTFOLIO PREVIEW ===== -->
 <section class="section portfolio-section">
     <div class="container">
-        <div class="section-header">
-            <span class="section-tag" data-en="Our Work" data-ar="أعمالنا">Our Work</span>
+        <div class="section-header reveal-up">
+            <span class="section-badge" data-en="Our Work" data-ar="أعمالنا">Our Work</span>
             <h2 class="section-title" data-en="Featured Projects" data-ar="أبرز المشاريع">Featured Projects</h2>
-            <p class="section-description" data-en="Take a look at our recent successful projects" data-ar="ألقِ نظرة على مشاريعنا الناجحة الأخيرة">Take a look at our recent successful projects</p>
+            <p class="section-desc" data-en="Take a look at our recent successful projects" data-ar="ألقِ نظرة على مشاريعنا الناجحة الأخيرة">Take a look at our recent successful projects</p>
         </div>
 
         <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-image" style="background-image: url('https://picsum.photos/600/400?random=10')"></div>
+            <div class="portfolio-item reveal-up" data-delay="1">
+                <img src="https://picsum.photos/600/450?random=51" alt="Project 1" class="portfolio-img">
                 <div class="portfolio-overlay">
-                    <span class="portfolio-category" data-en="Web Design" data-ar="تصميم ويب">Web Design</span>
+                    <span class="portfolio-tag" data-en="Web Design" data-ar="تصميم ويب">Web Design</span>
                     <h3 data-en="E-commerce Platform" data-ar="منصة تجارة إلكترونية">E-commerce Platform</h3>
-                    <a href="#" class="portfolio-link"><i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="portfolio.html" class="portfolio-link">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            <div class="portfolio-item">
-                <div class="portfolio-image" style="background-image: url('https://picsum.photos/600/400?random=11')"></div>
+
+            <div class="portfolio-item reveal-up" data-delay="2">
+                <img src="https://picsum.photos/600/450?random=52" alt="Project 2" class="portfolio-img">
                 <div class="portfolio-overlay">
-                    <span class="portfolio-category" data-en="Branding" data-ar="هوية بصرية">Branding</span>
+                    <span class="portfolio-tag" data-en="Branding" data-ar="هوية بصرية">Branding</span>
                     <h3 data-en="Luxury Brand Identity" data-ar="هوية علامة فاخرة">Luxury Brand Identity</h3>
-                    <a href="#" class="portfolio-link"><i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="portfolio.html" class="portfolio-link">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            <div class="portfolio-item">
-                <div class="portfolio-image" style="background-image: url('https://picsum.photos/600/400?random=12')"></div>
+
+            <div class="portfolio-item reveal-up" data-delay="3">
+                <img src="https://picsum.photos/600/450?random=53" alt="Project 3" class="portfolio-img">
                 <div class="portfolio-overlay">
-                    <span class="portfolio-category" data-en="Marketing" data-ar="تسويق">Marketing</span>
-                    <h3 data-en="Social Media Campaign" data-ar="حملة سوشيال ميديا">Social Media Campaign</h3>
-                    <a href="#" class="portfolio-link"><i class="fa-solid fa-arrow-right"></i></a>
+                    <span class="portfolio-tag" data-en="Marketing" data-ar="تسويق">Marketing</span>
+                    <h3 data-en="Social Campaign" data-ar="حملة سوشيال ميديا">Social Campaign</h3>
+                    <a href="portfolio.html" class="portfolio-link">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="section-cta">
-            <a href="portfolio.html" class="btn btn-outline">
-                <span data-en="View All Projects" data-ar="عرض جميع المشاريع">View All Projects</span>
+        <div class="section-footer reveal-up">
+            <a href="portfolio.html" class="btn btn-outline btn-lg">
+                <span data-en="View Full Portfolio" data-ar="عرض المعرض الكامل">View Full Portfolio</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- ============ STATS SECTION ============ -->
-<section class="section stats-section">
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="section features-section">
     <div class="container">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
-                <div class="stat-number" data-count="150">0</div>
-                <div class="stat-label" data-en="Projects Completed" data-ar="مشروع منجز">Projects Completed</div>
+        <div class="section-header reveal-up">
+            <span class="section-badge" data-en="Why Us" data-ar="لماذا نحن">Why Us</span>
+            <h2 class="section-title" data-en="Why Choose Kenven?" data-ar="لماذا تختار Kenven؟">Why Choose Kenven?</h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card reveal-up" data-delay="1">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 data-en="Fast Delivery" data-ar="تسليم سريع">Fast Delivery</h3>
+                <p data-en="We deliver projects on time, every time. No delays, no excuses." data-ar="نسلم المشاريع في الوقت المحدد دائماً. لا تأخير، لا أعذار.">We deliver projects on time, every time. No delays, no excuses.</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
-                <div class="stat-number" data-count="120">0</div>
-                <div class="stat-label" data-en="Happy Clients" data-ar="عميل سعيد">Happy Clients</div>
+
+            <div class="feature-card reveal-up" data-delay="2">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <h3 data-en="Premium Quality" data-ar="جودة متميزة">Premium Quality</h3>
+                <p data-en="Every pixel, every line of code is crafted with perfection." data-ar="كل بكسل، كل سطر كود مصنوع بإتقان.">Every pixel, every line of code is crafted with perfection.</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
-                <div class="stat-number" data-count="25">0</div>
-                <div class="stat-label" data-en="Awards Won" data-ar="جائزة">Awards Won</div>
+
+            <div class="feature-card reveal-up" data-delay="3">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 data-en="24/7 Support" data-ar="دعم على مدار الساعة">24/7 Support</h3>
+                <p data-en="We're here whenever you need us. Your success is our priority." data-ar="نحن هنا كلما احتجتنا. نجاحك أولويتنا.">We're here whenever you need us. Your success is our priority.</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
-                <div class="stat-number" data-count="8">0</div>
-                <div class="stat-label" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div>
+
+            <div class="feature-card reveal-up" data-delay="4">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 data-en="Secure & Reliable" data-ar="آمن وموثوق">Secure & Reliable</h3>
+                <p data-en="Bank-level security and 99.9% uptime guarantee." data-ar="أمان بمستوى البنوك وضمان تشغيل 99.9%.">Bank-level security and 99.9% uptime guarantee.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ============ TESTIMONIALS SECTION ============ -->
+<!-- ===== TESTIMONIALS ===== -->
 <section class="section testimonials-section">
     <div class="container">
-        <div class="section-header">
-            <span class="section-tag" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</span>
+        <div class="section-header reveal-up">
+            <span class="section-badge" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</span>
             <h2 class="section-title" data-en="What Clients Say" data-ar="ماذا يقول عملاؤنا">What Clients Say</h2>
-            <p class="section-description" data-en="Real feedback from our satisfied clients" data-ar="آراء حقيقية من عملائنا الراضين">Real feedback from our satisfied clients</p>
         </div>
 
-        <div class="testimonials-slider" id="testimonialsSlider">
-            <div class="testimonial-card active">
-                <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
-                <p class="testimonial-text" data-en="Working with Kenven Service was an incredible experience. They delivered beyond our expectations and transformed our online presence completely." data-ar="العمل مع Kenven Service كان تجربة مذهلة. قدموا ما يفوق توقعاتنا وحوّلوا حضورنا الرقمي بالكامل.">
-                    Working with Kenven Service was an incredible experience. They delivered beyond our expectations and transformed our online presence completely.
-                </p>
-                <div class="testimonial-author">
-                    <img src="https://i.pravatar.cc/100?img=11" alt="Client">
-                    <div>
-                        <h4>Sarah Johnson</h4>
-                        <span data-en="CEO, Tech Corp" data-ar="الرئيس التنفيذي، Tech Corp">CEO, Tech Corp</span>
-                    </div>
-                </div>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
+        <div class="testimonial-slider reveal-up">
+            <div class="testimonial-track" id="testimonialTrack">
+                <!-- Rendered by JavaScript -->
             </div>
-        </div>
-
-        <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+            
+            <div class="testimonial-controls">
+                <button class="testimonial-btn prev-btn" id="prevTestimonial">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="testimonial-dots" id="testimonialDots"></div>
+                <button class="testimonial-btn next-btn" id="nextTestimonial">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ============ CTA SECTION ============ -->
+<!-- ===== CTA SECTION ===== -->
 <section class="cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2 data-en="Ready to Start Your Project?" data-ar="مستعد لبدء مشروعك؟">Ready to Start Your Project?</h2>
-            <p data-en="Let's create something amazing together. Get in touch today!" data-ar="دعنا نصنع شيئاً مذهلاً معاً. تواصل معنا اليوم!">Let's create something amazing together. Get in touch today!</p>
+    <div class="cta-bg">
+        <div class="cta-gradient"></div>
+        <div class="cta-pattern"></div>
+    </div>
+    <div class="container cta-container">
+        <div class="cta-content reveal-up">
+            <h2 data-en="Ready to Transform Your Business?" data-ar="مستعد لتحويل عملك؟">Ready to Transform Your Business?</h2>
+            <p data-en="Let's create something extraordinary together. Get started today!" data-ar="دعنا نصنع شيئاً استثنائياً معاً. ابدأ اليوم!">Let's create something extraordinary together. Get started today!</p>
             <div class="cta-buttons">
-                <a href="contact.html" class="btn btn-primary btn-lg">
-                    <span data-en="Get Started Now" data-ar="ابدأ الآن">Get Started Now</span>
+                <a href="contact.html" class="btn btn-white btn-xl">
+                    <span data-en="Start Your Project" data-ar="ابدأ مشروعك">Start Your Project</span>
                     <i class="fa-solid fa-rocket"></i>
                 </a>
-                <a href="services.html" class="btn btn-light btn-lg">
+                <a href="services.html" class="btn btn-glass btn-xl">
                     <span data-en="Browse Services" data-ar="تصفح الخدمات">Browse Services</span>
                 </a>
             </div>
@@ -298,95 +381,120 @@
     </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col">
+            <div class="footer-brand">
                 <a href="index.html" class="footer-logo">
                     <img src="https://cdn.phototourl.com/free/2026-08-08-326ff550-00c6-4a31-b9c8-9d038049a364.jpg" alt="Logo">
-                    <span>Kenven Service</span>
+                    <span>Kenven<span class="logo-accent">Service</span></span>
                 </a>
-                <p data-en="Premium digital services that transform your business and elevate your brand to new heights." data-ar="خدمات رقمية متميزة تحوّل عملك وترتقي بعلامتك التجارية إلى آفاق جديدة.">Premium digital services that transform your business and elevate your brand to new heights.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <p data-en="Premium digital services that transform businesses and elevate brands to new heights." data-ar="خدمات رقمية متميزة تحوّل الأعمال وترتقي بالعلامات التجارية إلى آفاق جديدة.">Premium digital services that transform businesses and elevate brands to new heights.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
 
-            <div class="footer-col">
-                <h3 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h3>
+            <div class="footer-links">
+                <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
                 <ul>
                     <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
                     <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
                     <li><a href="portfolio.html" data-en="Portfolio" data-ar="أعمالي">Portfolio</a></li>
-                    <li><a href="about.html" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                    <li><a href="about.html" data-en="About" data-ar="من أنا">About</a></li>
                     <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
                 </ul>
             </div>
 
-            <div class="footer-col">
-                <h3 data-en="Services" data-ar="الخدمات">Services</h3>
+            <div class="footer-links">
+                <h4 data-en="Services" data-ar="الخدمات">Services</h4>
                 <ul>
-                    <li><a href="#" data-en="Web Design" data-ar="تصميم ويب">Web Design</a></li>
-                    <li><a href="#" data-en="Branding" data-ar="هوية بصرية">Branding</a></li>
-                    <li><a href="#" data-en="Development" data-ar="برمجة">Development</a></li>
-                    <li><a href="#" data-en="Marketing" data-ar="تسويق">Marketing</a></li>
-                    <li><a href="#" data-en="Consulting" data-ar="استشارات">Consulting</a></li>
+                    <li><a href="services.html" data-en="Web Design" data-ar="تصميم ويب">Web Design</a></li>
+                    <li><a href="services.html" data-en="Development" data-ar="برمجة">Development</a></li>
+                    <li><a href="services.html" data-en="Branding" data-ar="هوية بصرية">Branding</a></li>
+                    <li><a href="services.html" data-en="Marketing" data-ar="تسويق">Marketing</a></li>
+                    <li><a href="services.html" data-en="SEO" data-ar="تحسين SEO">SEO</a></li>
                 </ul>
             </div>
 
-            <div class="footer-col">
-                <h3 data-en="Contact Info" data-ar="معلومات التواصل">Contact Info</h3>
-                <ul class="contact-list">
-                    <li><i class="fa-solid fa-envelope"></i> info@kenven.com</li>
-                    <li><i class="fa-solid fa-phone"></i> +1 234 567 890</li>
-                    <li><i class="fa-solid fa-location-dot"></i> <span data-en="Worldwide Remote" data-ar="عن بعد عالمياً">Worldwide Remote</span></li>
+            <div class="footer-contact">
+                <h4 data-en="Contact Us" data-ar="تواصل معنا">Contact Us</h4>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@kenven.com</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 234 567 890</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span data-en="Worldwide Remote" data-ar="عن بعد عالمياً">Worldwide Remote</span>
+                    </li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p>&copy; 2026 Kenven Service. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
-            <p><span data-en="Crafted with" data-ar="صُنع بـ">Crafted with</span> <i class="fa-solid fa-heart"></i> <span data-en="by Kenven Team" data-ar="بواسطة فريق Kenven">by Kenven Team</span></p>
+            <div class="footer-bottom-links">
+                <a href="#" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+                <a href="#" data-en="Terms of Service" data-ar="شروط الخدمة">Terms of Service</a>
+            </div>
         </div>
     </div>
 </footer>
 
-<!-- ============ FLOATING ELEMENTS ============ -->
-<button class="scroll-top" id="scrollTop">
+<!-- ===== FLOATING ELEMENTS ===== -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
     <i class="fa-solid fa-arrow-up"></i>
 </button>
 
-<!-- ============ CART DRAWER ============ -->
+<!-- Cart Drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
 <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-panel">
-        <div class="cart-header">
-            <h3><i class="fa-solid fa-cart-shopping"></i> <span data-en="Your Cart" data-ar="سلتك">Your Cart</span></h3>
-            <button class="close-cart" id="closeCart">&times;</button>
+    <div class="cart-header">
+        <h3><i class="fa-solid fa-cart-shopping"></i> <span data-en="Your Cart" data-ar="سلتك">Your Cart</span></h3>
+        <button class="cart-close" id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span data-en="Total:" data-ar="الإجمالي:">Total:</span>
+            <span id="cartTotal">$0.00</span>
         </div>
-        <div class="cart-items" id="cartItems">
-            <p class="empty-cart" data-en="Your cart is empty" data-ar="سلتك فارغة">Your cart is empty</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span data-en="Total:" data-ar="الإجمالي:">Total:</span>
-                <span id="cartTotal">$0</span>
-            </div>
-            <a href="checkout.html" class="btn btn-primary btn-block" data-en="Checkout" data-ar="إتمام الطلب">Checkout</a>
-        </div>
+        <a href="checkout.html" class="btn btn-primary btn-block" id="checkoutBtn">
+            <i class="fa-solid fa-lock"></i>
+            <span data-en="Checkout" data-ar="إتمام الطلب">Checkout</span>
+        </a>
     </div>
 </div>
 
-<!-- ============ SCRIPTS ============ -->
-<script src="js/translations.js"></script>
+<!-- ===== SCRIPTS ===== -->
 <script src="js/data.js"></script>
+<script src="js/translations.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/app.js"></script>
+<script src="js/common.js"></script>
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/YOUR_TAWK_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
 </body>
 </html>
